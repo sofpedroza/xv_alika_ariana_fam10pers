@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>XV Años Alika & Ariana</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --dorado: #d4af37;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #000000, #1a0000);
+  color: #fff;
+  font-family: 'Maiandra GD', serif;
+  display: flex;
+}
+
+body::after {
+  content:"";
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(212,175,55,0.08), transparent 70%);
+  pointer-events: none;
+}
+
+.side {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.side img {
+  width: 90%;
+  margin: 15px auto;
+  border-radius: 15px;
+  object-fit: contain;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: aparecer 1s ease forwards;
+}
+
+.side img:nth-child(1){animation-delay:0.2s;}
+.side img:nth-child(2){animation-delay:0.5s;}
+.side img:nth-child(3){animation-delay:0.8s;}
+
+.side img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px red, 0 0 15px var(--dorado);
+}
+
+@keyframes aparecer {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.center {
+  width: 50%;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 60px;
+  color: #ff1a1a;
+  text-shadow: 0 0 10px red, 0 0 20px rgba(212,175,55,0.6);
+}
+
+.nombres {
+  font-family: 'Great Vibes', cursive;
+  font-size: 80px;
+  background: linear-gradient(45deg, #ff0000, #fff, #ff0000);
+  -webkit-background-clip: text;
+  color: transparent;
+  border-right: 3px solid red;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  margin: 20px auto;
+  animation: escribir 6s steps(30,end) forwards, blink 1s infinite;
+  text-shadow: 0 0 10px red, 0 0 25px var(--dorado);
+}
+
+.linea-dorada {
+  width: 60%;
+  height: 2px;
+  margin: 15px auto 25px;
+  background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+}
+
+
+p {
+  font-size: 24px;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 25px;
+  margin: 10px;
+  background: linear-gradient(45deg, red, darkred);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  border: 2px solid var(--dorado);
+  box-shadow: 0 0 15px red, 0 0 10px rgba(212,175,55,0.5);
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px red, 0 0 20px gold;
+}
+
+.btn-pase {
+  display: block;
+  width: 80%;
+  max-width: 350px;
+  margin: 40px auto 20px;
+  padding: 20px;
+  font-size: 22px;
+  text-align: center;
+  border-radius: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(45deg, #ff0000, #8b0000);
+  border: 3px solid var(--dorado);
+  box-shadow: 0 0 25px red, 0 0 20px gold;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.btn-pase::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(212,175,55,0.5), transparent);
+  animation: brilloBtn 3s infinite;
+}
+
+@keyframes brilloBtn {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.btn-pase:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px red, 0 0 30px gold;
+}
+
+.contador {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.flip-box {
+  background: #111;
+  border-radius: 10px;
+  padding: 15px 10px;
+  width: 80px;
+  text-align: center;
+  box-shadow: 0 0 15px red;
+  border: 1px solid rgba(212,175,55,0.5);
+}
+
+.flip-box span {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.flip-box small {
+  color: var(--dorado);
+  font-size: 12px;
+}
+
+.mensaje {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.03);
+  box-shadow: 0 0 20px rgba(212,175,55,0.3);
+  border: 1px solid rgba(212,175,55,0.3);
+}
+
+@media (max-width: 768px) {
+  body { flex-direction: column; }
+
+  .side {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .side img {
+    width: 140px;
+    margin: 10px;
+  }
+
+  .center { width: 100%; }
+
+  .nombres { font-size: 50px; }
+  h1 { font-size: 38px; }
+  p { font-size: 18px; }
+}
+
+@keyframes escribir { from{width:0} to{width:100%} }
+@keyframes blink { 50%{border-color:transparent} }
+
+</style>
+</head>
+
+<body>
+
+<div class="side">
+  <img src="./img/foto1.jpeg">
+  <img src="./img/foto2.jpeg">
+  <img src="./img/foto7.jpeg">
+  <img src="./img/foto6.jpeg">
+</div>
+
+<div class="center">
+
+<h1>✨ XV Años ✨</h1>
+<div class="nombres">Alika & Ariana</div>
+<div class="linea-dorada"></div>
+
+<p><strong>13 de marzo de 2027</strong></p>
+
+<div class="contador">
+  <div class="flip-box"><span id="dias">00</span><small>DÍAS</small></div>
+  <div class="flip-box"><span id="horas">00</span><small>HORAS</small></div>
+  <div class="flip-box"><span id="minutos">00</span><small>MIN</small></div>
+  <div class="flip-box"><span id="segundos">00</span><small>SEG</small></div>
+</div>
+
+<p>⛪ Misa: 6:00 PM</p>
+<a class="btn" href="https://maps.app.goo.gl/hH5AkkfHASZRBQ5M8" target="_blank">Ubicación misa 📍</a>
+
+<p>🎉 Recepción: 8:00 PM</p>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hacienda+Triana+Aguascalientes" target="_blank">Ubicación recepción 📍</a>
+
+<a class="btn" href="https://www.google.com/calendar/render?action=TEMPLATE&text=XV+Años+Alika+y+Ariana&dates=20270313T180000/20270313T230000&details=Fiesta+XV+Años&location=Aguascalientes" target="_blank">
+Agregar al calendario 📲
+</a>
+
+<div class="mensaje">
+
+<p> Para nosotras será un verdadero honor <br> 
+contar con tu presencia<br> 
+en esta fecha tan especial.<br><br> </p> 
+
+<p> Te solicitamos evitar los colores<br> 
+<strong>rojo, negro y dorado</strong> para no perder <br> 
+la armonia y elegancia,<br> 
+solo recordando que es un evento formal.<br><br> </p> 
+
+<p> Tu compañía es el mejor regalo 💖<br> 
+pero si nos quieres dar algun detalle <br> 
+puedes formar parte de nuestra<br> 
+<strong>Lluvia de sobres ✉️</strong><br><br> </p> 
+
+<p> Confirma tu asistencia antes del<br> 
+<strong>20 de enero</strong> </p>
+
+<a class="btn" id="rsvpBtn" href="#">Confirmar asistencia 💌</a>
+
+</div>
+
+<a class="btn-pase" 
+href="https://sofpedroza.github.io/invitacion-individual-XV/XV_ALIKA_ARIANA_individual/pase.html" 
+target="_blank">
+🎟 PASE FAMILIAR: 10 PERSONAS 🎟
+</a>
+
+</div>
+
+<div class="side">
+  <img src="img/foto8.jpeg">
+  <img src="img/foto3.jpeg">
+  <img src="img/foto5.jpeg">
+  <img src="img/foto4.jpeg">
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const invitado = params.get("nombre") || "Invitado";
+
+document.getElementById("rsvpBtn").href =
+"https://wa.me/524492895484?text=" +
+encodeURIComponent("Hola, confirmo mi asistencia a los XV de Alika & Ariana. Nombre: " + invitado);
+
+const eventDate = new Date("2027-03-13T18:00:00").getTime();
+
+setInterval(()=>{
+  const now = new Date().getTime();
+  const d = eventDate - now;
+
+  document.getElementById("dias").innerText = Math.floor(d/(1000*60*60*24));
+  document.getElementById("horas").innerText = Math.floor((d/(1000*60*60))%24);
+  document.getElementById("minutos").innerText = Math.floor((d/(1000*60))%60);
+  document.getElementById("segundos").innerText = Math.floor((d/1000)%60);
+
+},1000);
+
+</script>
+
+</body>
+</html>

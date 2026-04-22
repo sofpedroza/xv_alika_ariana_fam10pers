@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Pase Familiar: 6 personas</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #000000, #1a0000);
+  color: white;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid gold;
+  box-shadow: 0 0 40px rgba(212,175,55,0.6);
+  position: relative;
+  overflow: hidden;
+  width: 90%;
+  max-width: 400px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(212,175,55,0.4), transparent);
+  animation: brillo 4s linear infinite;
+}
+
+@keyframes brillo {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
+}
+
+h1 {
+  font-size: 32px;
+  color: gold;
+  text-shadow: 0 0 15px gold;
+}
+
+h2 {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 18px;
+  margin-top: 15px;
+  color: #ffd700;
+}
+
+.contador {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.box {
+  background: #111;
+  border-radius: 10px;
+  padding: 10px;
+  width: 65px;
+  box-shadow: 0 0 10px red;
+  border: 1px solid rgba(212,175,55,0.5);
+}
+
+.box span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.box small {
+  font-size: 10px;
+  color: gold;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 20px;
+  background: linear-gradient(45deg, red, darkred);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  border: 2px solid gold;
+  box-shadow: 0 0 15px red, 0 0 10px gold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px red, 0 0 20px gold;
+}
+
+.card {
+  animation: aparecer 1.5s ease;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>🎟 PASE FAMILIAR: 10 PERSONAS</h1>
+  <h2>- XV ALIKA & ARIANA -</h2>
+  <p>*No olvides confirmar tu asistencia*</p>
+
+  <div class="contador">
+    <div class="box"><span id="dias">00</span><small>DÍAS</small></div>
+    <div class="box"><span id="horas">00</span><small>HORAS</small></div>
+    <div class="box"><span id="minutos">00</span><small>MIN</small></div>
+    <div class="box"><span id="segundos">00</span><small>SEG</small></div>
+  </div>
+
+  <a id="confirmarBtn" class="btn">Confirmar asistencia 💌</a>
+
+</div>
+
+<script>
+
+const eventDate = new Date("2027-03-13T18:00:00").getTime();
+
+setInterval(()=>{
+  const now = new Date().getTime();
+  const d = eventDate - now;
+
+  document.getElementById("dias").innerText = Math.floor(d/(1000*60*60*24)).toString().padStart(2,"0");
+  document.getElementById("horas").innerText = Math.floor((d/(1000*60*60))%24).toString().padStart(2,"0");
+  document.getElementById("minutos").innerText = Math.floor((d/(1000*60))%60).toString().padStart(2,"0");
+  document.getElementById("segundos").innerText = Math.floor((d/1000)%60).toString().padStart(2,"0");
+
+},1000);
+
+document.getElementById("confirmarBtn").href =
+"https://wa.me/524492895484?text=" +
+encodeURIComponent("Confirmo mi asistencia al evento XV Alika & Ariana. Nombres: invitados");
+
+</script>
+
+</body>
+</html>
